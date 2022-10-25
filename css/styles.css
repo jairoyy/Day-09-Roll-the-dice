@@ -1,0 +1,198 @@
+/*!
+ * @author Mohamed Muntasir
+ * @link https://github.com/devmotheg
+ */
+
+/* General */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #1e1e1e;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  min-width: 280px;
+}
+
+/* Header */
+
+header {
+  background: #eee;
+  color: #111;
+  padding: 1.25rem 0 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: #111;
+  margin-top: 0.6rem;
+  display: block;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Dice */
+
+.dice__trigger {
+  display: block;
+  margin: 2rem auto 3.5rem;
+  font-size: 1rem;
+  padding: 1rem 1.2rem;
+  background: #eee;
+  color: #111;
+  border-radius: calc(4em / 16);
+  cursor: pointer;
+}
+
+.dice__trigger:hover {
+  opacity: 0.9;
+}
+
+.dice__faces {
+  display: grid;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transform: rotate3d(1, 1, 1, 0deg);
+  height: 6rem;
+  width: 6rem;
+  margin: auto;
+  transition: 0.8s;
+}
+
+.dice__face {
+  display: grid;
+  grid-template-areas: "one two three" "four five six" "seven eight nine";
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+  width: 6rem;
+  height: 6rem;
+  padding: 0.4rem;
+  background: black;
+  border: 0.1rem solid white;
+  box-shadow: 0 0 0.3rem 0.15rem rgb(255 255 255 / 40%) inset;
+}
+
+.dice__dot {
+  display: block;
+  background: white;
+  width: calc(15em / 16);
+  height: calc(15em / 16);
+  border-radius: 50%;
+  box-shadow: 0.05rem -0.05rem 0.2rem 0.05rem rgb(0 0 0 / 40%) inset;
+}
+
+[data-side="1"] .dice__dot:nth-of-type(1) {
+  grid-area: five;
+}
+
+[data-side="2"] .dice__dot:nth-of-type(1) {
+  grid-area: one;
+}
+
+[data-side="2"] .dice__dot:nth-of-type(2) {
+  grid-area: nine;
+}
+
+[data-side="3"] .dice__dot:nth-of-type(1) {
+  grid-area: one;
+}
+
+[data-side="3"] .dice__dot:nth-of-type(2) {
+  grid-area: five;
+}
+
+[data-side="3"] .dice__dot:nth-of-type(3) {
+  grid-area: nine;
+}
+
+[data-side="4"] .dice__dot:nth-of-type(1) {
+  grid-area: one;
+}
+
+[data-side="4"] .dice__dot:nth-of-type(2) {
+  grid-area: three;
+}
+
+[data-side="4"] .dice__dot:nth-of-type(3) {
+  grid-area: seven;
+}
+
+[data-side="4"] .dice__dot:nth-of-type(4) {
+  grid-area: nine;
+}
+
+[data-side="5"] .dice__dot:nth-of-type(1) {
+  grid-area: one;
+}
+
+[data-side="5"] .dice__dot:nth-of-type(2) {
+  grid-area: three;
+}
+
+[data-side="5"] .dice__dot:nth-of-type(3) {
+  grid-area: five;
+}
+
+[data-side="5"] .dice__dot:nth-of-type(4) {
+  grid-area: seven;
+}
+
+[data-side="5"] .dice__dot:nth-of-type(5) {
+  grid-area: nine;
+}
+
+[data-side="6"] .dice__dot:nth-of-type(1) {
+  grid-area: one;
+}
+
+[data-side="6"] .dice__dot:nth-of-type(2) {
+  grid-area: three;
+}
+
+[data-side="6"] .dice__dot:nth-of-type(3) {
+  grid-area: four;
+}
+
+[data-side="6"] .dice__dot:nth-of-type(4) {
+  grid-area: six;
+}
+
+[data-side="6"] .dice__dot:nth-of-type(5) {
+  grid-area: seven;
+}
+
+[data-side="6"] .dice__dot:nth-of-type(6) {
+  grid-area: nine;
+}
+
+[data-side="1"] {
+  transform: rotate3d(0, 0, 0, 90deg) translateZ(3rem);
+}
+
+[data-side="2"] {
+  transform: rotate3d(-1, 0, 0, 90deg) translateZ(-9rem);
+}
+
+[data-side="3"] {
+  transform: rotate3d(0, 1, 0, 90deg) translateZ(3rem) translateY(-12rem);
+}
+
+[data-side="4"] {
+  transform: rotate3d(0, -1, 0, 90deg) translateZ(3rem) translateY(-18rem);
+}
+
+[data-side="5"] {
+  transform: rotate3d(1, 0, 0, 90deg) translateZ(21rem);
+}
+
+[data-side="6"] {
+  transform: rotate3d(1, 0, 0, 180deg) translateZ(3rem) translateY(30rem);
+}
